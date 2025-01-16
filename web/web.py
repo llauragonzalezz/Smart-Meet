@@ -6,10 +6,10 @@ from flask_babel import Babel
 from flask_babel import gettext as _
 
 # ----------------- CONFIG -----------------
-WEB_HOST = os.environ.get('WEB_HOST', 'localhost')
+WEB_HOST = os.environ.get('WEB_HOST', '0.0.0.0')
 WEB_PORT = int(os.environ.get('WEB_PORT', 8001))
 DEBUG = os.environ.get('DEBUG', 'True').lower() == 'true'
-API_HOST = os.environ.get('API_URL', "localhost")
+API_HOST = os.environ.get('API_URL', "0.0.0.0")
 API_PORT = int(os.environ.get('API_PORT', 8000))
 
 # ----------------- APP -----------------
