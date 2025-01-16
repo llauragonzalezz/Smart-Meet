@@ -10,7 +10,7 @@ import os
 WEB_HOST = os.environ.get('WEB_HOST', 'localhost')
 WEB_PORT = int(os.environ.get('WEB_PORT', 8001))
 DEBUG = os.environ.get('DEBUG', 'True').lower() == 'true'
-API_URL = os.environ.get('API_URL', "localhost")
+API_HOST = os.environ.get('API_URL', "localhost")
 API_PORT = int(os.environ.get('API_PORT', 8000))
 OPENAI_MODEL = os.environ.get('OPENAI_MODEL', 'gpt-4o-mini')
 openai.api_key = os.environ.get('OPENAI_API_KEY', '')
