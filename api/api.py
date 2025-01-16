@@ -7,17 +7,13 @@ import os
 
 
 # ----------------- CONFIG -----------------
-config = configparser.ConfigParser()
-config.read('../settings.ini')
-
-WEB_HOST = os.environ.get('WEB_HOST', config['WEB']['HOST'])
-WEB_HOST = os.environ.get('WEB_HOST', config['WEB']['HOST'])
-WEB_PORT = os.environ.get('WEB_PORT', config['WEB']['PORT'])
-DEBUG = os.environ.get('DEBUG', config['WEB'].getboolean('DEBUG'))
-API_HOST = os.environ.get('API_HOST', config['API']['HOST'])
-API_PORT = os.environ.get('API_PORT', config['API']['PORT'])
-OPENAI_MODEL = os.environ.get('OPENAI_MODEL', config['DEFAULT']['OPENAI_MODEL'])
-openai.api_key = os.environ.get('OPENAI_API_KEY', config['DEFAULT']['OPENAI_API_KEY'])
+WEB_HOST = os.environ.get('WEB_HOST', 'localhost')
+WEB_PORT = int(os.environ.get('WEB_PORT', 8001))
+DEBUG = os.environ.get('DEBUG', 'True').lower() == 'true'
+API_URL = os.environ.get('API_URL', "localhost")
+API_PORT = int(os.environ.get('API_PORT', 8000))
+OPENAI_MODEL = os.environ.get('OPENAI_MODEL', 'gpt-4o-mini')
+openai.api_key = os.environ.get('OPENAI_API_KEY', '')
 
 
 app = Flask(__name__)
@@ -238,4 +234,4 @@ def generate_keyword_stats():
 if __name__ == '__main__':
     app.run(debug=True, host=API_HOST, port=API_PORT)
 
-    app.config['SECRET_KEY'] = config['DEFAULT']['SECRET_KEY']
+    app.config['SECRET_KEY'] = os.environ.get('SECRET_KEY', '')
