@@ -1,0 +1,163 @@
+{% extends "base.html" %}
+
+{% block title %}Meeting - SmartMeet{% endblock %}
+
+{% block content %}
+<div class="meeting-page">
+    <div class="meeting-header">
+        <!-- Información de la reunión -->
+        <div class="meeting-info">
+            <h1 id="meeting-title">{{ title }}</h1>
+            <div class="info-details">
+                <div class="info-item">
+                    <i class="fas fa-clock"></i>
+                    <span id="meeting-time">{{ duration }} {{ _('minutos') }}</span>
+                </div>
+                <div class="info-item">
+                    <i class="fas fa-users"></i>
+                    <span id="meeting-participants">{{ participants }} {{ _('participantes') }}</span>
+                </div>
+                <div class="info-item">
+                    <i class="fas fa-hourglass-half"></i>
+                    <span id="remaining-time">{{ _('Tiempo restante:') }} {{ duration }} {{ _('minutos') }}</span>
+                </div>
+                <div class="info-item">
+                    <i class="fas fa-robot"></i>
+                    <!-- Estado de generación -->
+                    <div id="update-status" class="status-message">
+                        <!-- Los mensajes dinámicos aparecerán aquí -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+        <!-- Logo -->
+        <img src="/static/imgs/light_logo_horizontal.png" alt="Logo" class="logo">
+    </div>        
+
+    <!-- Layout de 3 columnas -->
+    <div class="meeting-layout">
+        <div class="column">
+            <div class="section">
+                <!-- Webcam -->
+                <div class="webcam-header">
+                    <h2>{{ _('Webcam') }}</h2>
+                    <div>
+                        <select id="model-select" class="model-dropdown">
+                            <option value="nan">{{ _('Selecciona Modelo') }}</option>
+                            <option value="model1">COCO-SSD</option>
+                            <option value="model2">YOLO</option>
+                        </select>
+                    </div>
+                </div>
+                <div id="liveView" class="camView">
+                    <video id="webcam" autoplay playsinline muted class="webcam-view"></video>
+                </div>
+                <!-- Resumen -->
+                <h2>{{ _('Resumen') }}</h2>
+                <p id="summary-text" class="summary-text">{{ _('Esperando el resumen...') }}</p>
+                
+                
+
+                <!-- Timeline -->
+                <div class="timeline-section">
+                    <h2>{{ _('Timeline') }}</h2>
+                    <div id="timeline-container" class="timeline-container">
+                        <!-- Los nodos del timeline se añadirán dinámicamente aquí -->
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="column">
+            <!-- Transcripción -->
+            <div class="section">
+                <h2 class="transcription-title">
+                    {{ _('Transcripción') }}
+                    <span class="language-selector">
+                        <span id="flag-es" class="flag active" onclick="changeLanguage('es')" title="Español">🇪🇸</span>
+                        <span id="flag-en" class="flag" onclick="changeLanguage('en')" title="English">🇬🇧</span>
+                    </span>
+                </h2>
+                <p id="transcript-text"></p>
+            </div>
+            <div class="section">
+                <!-- Palabras clave -->
+                <h2>{{ _('Palabras Clave') }}</h2>
+                <div id="keywords-text" class="keywords-container">
+                    <!-- Aquí se insertarán las palabras clave como tags -->
+                </div>
+                <div id="keyword-details" class="keyword-details">
+                    <!-- Detalles dinámicos de las palabras clave -->
+                </div>
+            </div>
+        </div>
+        <div class="column">
+            <div class="section">
+            
+                <!-- Ideas -->
+                <div class="ideas-section">
+                    <h2>{{ _('Ideas') }}</h2>
+                    <div id="ideas-text" class="drag-container">
+                        <!-- Aquí se insertarán las ideas como tags -->
+                        <p>{{ _('No hay ninguna idea todavía...') }}</p>
+                    </div>
+                    <div id="priority-zones">
+                        <div class="priority-zone" data-priority="alta">
+                            <h3>{{ _('Alta Prioridad') }}</h3>
+                            <div class="drag-container" id="high-priority"></div>
+                        </div>
+                        <div class="priority-zone" data-priority="media">
+                            <h3>{{ _('Media Prioridad') }}</h3>
+                            <div class="drag-container" id="medium-priority"></div>
+                        </div>
+                        <div class="priority-zone" data-priority="baja">
+                            <h3>{{ _('Baja Prioridad') }}</h3>
+                            <div class="drag-container" id="low-priority"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- Incluir el boton descargar informe -->
+{% include 'menu/informe_menu.html' %}
+
+<!-- Incluir el modal de traducción -->
+{% include 'menu/translate_menu.html' %}
+
+<!-- Incluir el modal de accesibilidad -->
+{% include 'menu/accessibility_menu.html' %}
+
+<!-- Incluir el boton end meeting -->
+{% include 'menu/meeting_end.html' %}
+
+<!-- Libraries -->
+<script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@latest" type="text/javascript"></script>
+<script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/coco-ssd"></script>
+<script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/coco-ssd"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+
+
+<!-- JS Scripts -->
+<script src="/static/js/menu/accessibility_menu.js"></script>
+<script src="/static/js/menu/translate_menu.js"></script>
+<script src="/static/js/menu/meeting_end_menu.js"></script>
+<script src="/static/js/meeting_remaining_time.js"></script>
+<script src="/static/js/meeting_webcam.js"></script>
+<script src="/static/js/language.js"></script>
+<script type="module" src="/static/js/models_recognition.js"></script>
+<script type="module" src="/static/js/coco.js"></script>
+<script type="module" src="/static/js/yolo.js"></script>
+<script src="/static/js/pdf.js"></script>
+<script type="module" src="/static/js/transcript.js"></script>
+<script type="module" src="/static/js/generative.js"></script>
+<script type="module" src="/static/js/keywords_stats.js"></script>
+{% endblock %}
+
+{% block footer %}
+{% endblock %}
+
+

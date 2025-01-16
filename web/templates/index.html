@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+
+{% block title %}{{ _('Planifica tu reunión') }} - SmartMeet{% endblock %}
+
+{% block content %}
+  <div class="container">
+      <div class="card-principal">
+          <img src="static/imgs/light_logo_horizontal.png" class="logo" alt="Logo de la aplicación">
+          <h1>{{ _('Planifica tu Reunión Inteligente') }}</h1>
+          <form id="meeting-form" action="/meeting" method="GET">
+            <input type="text" class="input" id="meeting-title" name="title" placeholder="{{ _('Título de la reunión') }}" required>
+        
+            <!-- Contenedor del slider para duración -->
+            <div class="slider-container">
+                <label for="meeting-duration">{{ _('Duración (en minutos)') }}:</label>
+                <input type="range" id="meeting-duration" name="duration" min="10" max="180" step="10" value="30" class="slider">
+                <span id="duration-value">30 {{ _('minutos') }}</span>
+            </div>
+        
+            <!-- Contenedor del slider para participantes -->
+            <div class="slider-container">
+                <label for="participants">{{ _('Número de participantes') }}:</label>
+                <input type="range" id="participants" name="participants" min="1" max="10" step="1" value="5" class="slider">
+                <span id="participants-value">5 {{ _('participantes') }}</span>
+            </div>
+        
+            <div class="actions">
+                <button type="submit">{{ _('Iniciar Reunión') }}</button>
+            </div>
+        </form>          
+      </div>
+
+    <!-- Incluir el modal de traducción -->
+    {% include 'menu/translate_menu.html' %}
+
+    <!-- Incluir el modal de accesibilidad -->
+    {% include 'menu/accessibility_menu.html' %}
+
+  </div>
+
+  <!-- JS Scripts -->
+  <script src="/static/js/menu/translate_menu.js"></script>
+  <script src="/static/js/menu/accessibility_menu.js"></script>
+  <script src="/static/js/meeting_form.js"></script>
+
+{% endblock %}

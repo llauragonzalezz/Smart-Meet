@@ -1,0 +1,12 @@
+FOTOS
+*.zip
+*.mp4
+tutorial-semana-4-1
+example-yamnet
+model
+*.m4a
+*.wav
+venv
+.venv
+settings.ini
+config.ini

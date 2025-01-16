@@ -1,0 +1,746 @@
+/* Variables para temas y colores */
+:root {
+  --background-color: #f0f4f8;
+  --text-color: #1a202c;
+  --primary-color: #142637;
+  --secondary-color: #ffffff;
+  --accent-color: #5de0e6;
+  --input-border-color: #ccd1d9;
+  --button-hover-color: #003a88;
+  --highlight-coco: #5ddfe651;
+  --highlight-yolo: #003b8865;
+  --ideas-text-color:#1a202c;
+  --ideas-priority-text-color:#1a202c;;
+  --green-color: #28a745;
+  --header-font-size: calc(var(--font-size) + 8px); /* Tamaño para encabezados */
+  --font-size: 14px;
+  --font-family: 'Roboto', sans-serif;
+  transition: font-size 0.3s ease;
+}
+
+/* Tema oscuro */
+[data-theme="dark"] {
+  --background-color: #1a202c;
+  --text-color: #e2e8f0;
+  --primary-color: #5de0e6;
+  --secondary-color: #2d3748;
+  --input-border-color: #4a5568;
+  --button-hover-color: #4fa9b2;
+  --ideas-text-color: #e2e8f0;
+}
+
+/* General */
+body {
+  font-size: var(--font-size);
+  line-height: 1.5;
+  font-family: var(--font-family);
+  background-color: var(--background-color);
+  color: var(--text-color);
+  margin: 0;
+  padding: 0;
+  font-size: var(--font-size);
+}
+
+/* Contenedor principal */
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  padding: 20px;
+  text-align: center;
+}
+
+/* Tarjeta principal */
+.card-principal {
+  background-color: var(--secondary-color);
+  border-radius: 16px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 40px;
+  max-width: 450px;
+  width: 100%;
+}
+
+/* Logo */
+.logo {
+  width: 250px;
+}
+
+.logo:hover {
+  transform: scale(1.05);
+}
+
+h1 {
+  font-size: var(--header-font-size); /* Escala con la variable */
+  margin: 0;
+  color: var(--primary-color);
+}
+
+h2, h3, h4 {
+  font-size: calc(var(--font-size) + 4px); /* Tamaños relativos */
+}
+
+p, span, button {
+  font-size: var(--font-size); /* Usa la variable global */
+}
+
+
+/* Inputs */
+.input {
+  width: 100%;
+  padding: 12px 16px;
+  margin-bottom: 20px;
+  border: 1px solid var(--input-border-color);
+  border-radius: 12px;
+  font-size: var(--font-size);
+  background-color: var(--secondary-color);
+  color: var(--text-color);
+  box-sizing: border-box;
+}
+
+.input:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 6px rgba(0, 74, 173, 0.3);
+}
+
+/* Contenedor de sliders */
+.slider-container {
+  margin-bottom: 30px;
+}
+
+/* Sliders */
+.slider {
+  -webkit-appearance: none;
+  width: 100%;
+  height: 10px;
+  background: linear-gradient(to right, #5de0e6, #004aad); /* Degradado invertido */
+  border-radius: 5px;
+  outline: none;
+  transition: opacity 0.2s;
+  margin-bottom: 15px;
+}
+
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: var(--primary-color);
+  cursor: pointer;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.slider::-moz-range-thumb {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: var(--primary-color);
+  cursor: pointer;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.slider:hover {
+  opacity: 1;
+}
+
+/* Estilos generales para los select */
+select {
+  width: 100%; /* Ocupa todo el ancho del contenedor */
+  padding: 10px;
+  margin: 10px 0;
+  font-size: var(--font-size);
+  color: var(--text-color);
+  background-color: var(--secondary-color);
+  border: 1px solid var(--input-border-color);
+  border-radius: 8px;
+  outline: none;
+  cursor: pointer;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Efectos de hover y focus */
+select:hover {
+  border-color: var(--primary-color);
+}
+
+select:focus {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 5px rgba(0, 74, 173, 0.3); /* Resalta el borde */
+}
+
+/* Icono de flecha personalizado */
+select::after {
+  content: '▼'; /* Añade una flecha hacia abajo */
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none; /* Evita que sea clicable */
+}
+
+/* Texto debajo de sliders */
+#duration-value,
+#participants-value {
+  margin-top: -10px;
+  margin-bottom: 15px;
+  display: block;
+  color: var(--text-color);
+  text-align: left;
+}
+
+/* Botones */
+button {
+  background: linear-gradient(to right, #5de0e6, #004aad);
+  color: var(--secondary-color);
+  border: none;
+  padding: 12px 20px;
+  border-radius: 12px;
+  font-size: var(--font-size);
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s;
+}
+
+button:hover {
+  transform: scale(1.05);
+  background: linear-gradient(to right, #4fa9b2, #003a88);
+}
+
+.accessibility-menu-button {
+  position: fixed;
+  bottom: 100px;
+  right: 20px;
+  padding: 15px;
+  border-radius: 50%;
+  font-size: 20px;
+}
+
+.translate-menu-button {
+  position: fixed;
+  bottom: 175px;
+  right: 20px;
+  padding: 15px;
+  border-radius: 50%;
+  font-size: 20px;
+}
+
+#meeting-end-button {
+  all: unset; /* Restablecer todos los estilos heredados */
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  padding: 15px;
+  border-radius: 50%;
+  font-size: 19px;
+  background-color: #e53e3e; /* Color rojo */
+  color: white;
+  cursor: pointer;
+}
+
+/* Estilos interactivos */
+#meeting-end-button:hover {
+  background-color: #c53030; /* Color más oscuro */
+  transform: scale(1.05); /* Efecto de zoom */
+}
+
+#meeting-end-button:active {
+  transform: scale(1); /* Sin zoom al hacer clic */
+}
+
+/* --------------------------- */
+/* Modal */
+/* --------------------------- */
+
+.modal.hidden {
+  display: none;
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background-color: var(--secondary-color);
+  border-radius: 12px;
+  padding: 30px;
+  width: 320px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  text-align: center;
+}
+
+.modal-content h2 {
+  margin-bottom: 20px;
+  font-size: 20px;
+  color: var(--text-color);
+}
+
+.close-modal-button {
+  background: var(--primary-color);
+  color: var(--secondary-color);
+  border: none;
+  padding: 10px 15px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: var(--font-size);
+  transition: background-color 0.3s ease;
+}
+
+.close-modal-button:hover {
+  background: var(--button-hover-color);
+}
+
+
+/* --------------------------- */
+/* Meeting Page */
+/* --------------------------- */
+
+/* Aplicar altura a la plantilla específica de reuniones */
+.meeting-page {
+  height: 100vh; /* Ocupa todo el alto de la ventana */
+  display: flex;
+  flex-direction: column;
+}
+
+/* Encabezado de la reunión */
+.meeting-header {
+  display: flex;
+  align-items: center; /* Alinea verticalmente */
+  justify-content: space-between; /* Logo a la derecha */
+  background-color: var(--secondary-color);
+  padding: 10px 25px;
+  border-bottom: 1px solid var(--input-border-color);
+}
+
+.meeting-header h1 {
+  color: var(--primary-color);
+  margin: 0;
+}
+
+.meeting-info {
+  display: flex;
+  flex-direction: column;
+  gap: 10px; /* Espaciado entre título y detalles */
+}
+
+/* Detalles alineados horizontalmente */
+.info-details {
+  display: flex;
+  gap: 15px; /* Espaciado entre cada elemento */
+  flex-wrap: wrap; /* Permite que los elementos se ajusten en pantallas pequeñas */
+}
+
+.info-item {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  color: var(--text-color);
+}
+
+.info-item i {
+  color: var(--primary-color);
+}
+
+/* Logo en el encabezado */
+.meeting-header .logo {
+  height: 60px; /* Ajusta el tamaño del logo */
+  object-fit: contain; /* Asegura que el logo no se deforme */
+  margin-left: 20px; /* Espacio entre el logo y los elementos adyacentes */
+}
+
+
+/* Layout de columnas */
+.meeting-layout {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* Tres columnas iguales */
+  gap: 20px;
+  flex-grow: 1; /* Las columnas ocupan el resto del alto disponible */
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.section {
+  background-color: var(--secondary-color);
+  border-radius: 8px;
+  padding: 20px;
+  height: 100%; /* Las secciones ocupan el alto de la columna */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.section h2 {
+  color: var(--primary-color);
+  margin-bottom: 10px;
+}
+
+.section p {
+  color: var(--text-color);
+  text-align: justify; /* Justifica el texto */
+}
+
+
+.subsection {
+  margin-top: 20px;
+}
+
+.subsection h3 {
+  color: var(--primary-color);
+  margin-bottom: 10px;
+}
+
+.subsection p, .subsection ul {
+  color: var(--text-color);
+  line-height: 1.6;
+}
+
+.subsection ul {
+  list-style-type: disc;
+  margin-left: 20px;
+}
+
+#remaining-time {
+  font-weight: bold;
+  color: #e53e3e; /* Rojo para destacar */
+}
+
+.summary-text {
+  max-height: 450px;
+  overflow-y: auto;
+}
+
+/* --------------------------- */
+/* Responsive */
+/* --------------------------- */
+@media (max-width: 768px) {
+  .meeting-layout {
+      grid-template-columns: 1fr; /* Cambia a una sola columna */
+  }
+}
+@media (max-width: 768px) {
+  .info-details {
+      flex-direction: column; /* Cambia a diseño vertical en pantallas pequeñas */
+      gap: 8px;
+  }
+  .meeting-header {
+      flex-direction: column;
+      align-items: flex-start; /* Alinea todos los elementos a la izquierda */
+  }
+  .meeting-header .logo {
+      align-self: center; /* Centra el logo */
+      margin: 10px 0;
+  }
+}
+
+/* --------------------------- */
+/* Footer */
+/* --------------------------- */
+footer {
+  margin-top: 30px;
+  font-size: 12px;
+  color: var(--text-color);
+  text-align: center;
+}
+
+
+
+
+/* --------------------------- */
+/* Ideas */
+/* --------------------------- */
+/* Ideas (Drag and Drop) */
+.drag-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  min-height: 100px;
+  border: 2px dashed #ccc;
+  border-radius: 8px;
+  padding: 10px;
+}
+
+/* Estilo base de las tarjetas */
+.idea-card {
+  color: var(--ideas-text-color);
+  background-color: var(--secondary-color);
+  padding: 15px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  cursor: grab;
+  transition: transform 0.2s ease, background-color 0.3s ease;
+}
+
+.idea-card:hover {
+  transform: scale(1.05);
+}
+
+/* Estilos para cada prioridad */
+.high-priority {
+  background-color: #ffe6e6;
+  border-color: #ff4d4d;
+  color: var(--ideas-priority-text-color);
+}
+
+.medium-priority {
+  background-color: #fff9e6;
+  border-color: #ffc107;
+  color: var(--ideas-priority-text-color);
+}
+
+.low-priority {
+  background-color: #e6f7e6;
+  border-color: #28a745;
+  color: var(--ideas-priority-text-color);
+}
+
+/* Dragging efecto */
+.dragging {
+  opacity: 0.5;
+  transform: rotate(-3deg);
+}
+
+/* --------------------------- */
+/* Keywords */
+/* --------------------------- */
+/* Contenedor de palabras clave */
+.keywords-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.keyword-tag {
+  background-color: #e0f7fa;
+  color: #00796b;
+  padding: 5px 10px;
+  border-radius: 12px;
+  border: 1px solid #b2dfdb;
+  cursor: default;
+  transition: transform 0.2s ease;
+}
+
+.keyword-tag:hover {
+  transform: scale(1.1);
+  background-color: #b2dfdb;
+  color: #004d40;
+}
+
+.keyword-details-card {
+  padding: 16px;
+  color: var(--ideas-text-color);
+}
+
+.keyword-details-card h3 {
+  margin: 0 0 12px 0;
+  font-size: 18px;
+  color: var(--ideas-text-color);
+}
+
+.detail-item {
+  margin-bottom: 12px;
+}
+
+.detail-item:hover {
+  transform: scale(1.01);
+}
+
+.detail-item span {
+  display: block;
+  margin-bottom: 4px;
+  font-size: 14px;
+  color: var(--ideas-text-color);
+}
+
+.progress-bar-container {
+  background-color: #e0e0e0;
+  border-radius: 8px;
+  overflow: hidden;
+  height: 12px;
+  margin-top: 4px;
+  position: relative;
+}
+
+.progress-bar {
+  height: 100%;
+  background-color: #acaf4c;
+  transition: width 0.3s ease;
+}
+
+.progress-bar.positive {
+  height: 100%;
+  background-color: #4caf50;
+  transition: width 0.3s ease;
+}
+
+.progress-bar.negative {
+  background-color: #f44336;
+}
+
+.progress-bar.neutral {
+  background-color: #4b6e9b;
+}
+
+/* --------------------------- */
+/* Timeline */
+/* --------------------------- */
+.timeline-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  border-left: 2px solid var(--input-border-color);
+  padding: 10px 20px;
+  max-height: 250px;
+  overflow-y: auto;
+}
+
+.timeline-item {
+  position: relative;
+  padding-left: 20px;
+  margin-bottom: 10px;
+}
+
+.timeline-item::before {
+  content: '';
+  position: absolute;
+  left: -10px;
+  top: 5px;
+  width: 10px;
+  height: 10px;
+  background-color: var(--accent-color);
+  border-radius: 50%;
+}
+
+.timeline-time {
+  color: var(--accent-color);
+}
+
+.timeline-content {
+  margin-top: 5px;
+}
+
+/* --------------------------- */
+/* Language selector (flags) */
+/* --------------------------- */
+.transcription-title {
+  display: flex;
+  align-items: center; /* Alinear verticalmente el texto y las banderas */
+  gap: 10px; /* Espaciado entre "Transcripción" y las banderas */
+}
+
+.language-selector {
+  display: flex;
+  gap: 5px; /* Espaciado entre las banderas */
+}
+
+.flag {
+  font-size: 20px; /* Tamaño más pequeño para las banderas */
+  cursor: pointer;
+  filter: grayscale(100%); /* Inactivo por defecto */
+  transition: filter 0.3s ease, transform 0.3s ease;
+}
+
+.flag.active {
+  filter: none; /* Mostrar colores cuando está activa */
+  transform: scale(1.1); /* Ligeramente más grande al estar activa */
+}
+
+#transcript-text {
+  max-height: 720px;
+  overflow-y: auto;
+  padding: 10px;
+}
+
+/* --------------------------- */
+/* Webcam */
+/* --------------------------- */
+.webcam-view {
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  margin-bottom: 10px;
+}
+
+.camView {
+  float: left;
+  /* width: calc(100% - 20px); */
+  cursor: pointer;
+}
+
+.camView p {
+  position: absolute;
+  background-color: var(--accent-color);
+  color: var(--secondary-color);
+  border: 1px dashed rgba(255, 255, 255, 0.7);
+  z-index: 2;
+  font-size: 12px;
+}
+
+.text-coco {
+  background-color: var(--accent-color);
+  color: var(--secondary-color);
+}
+
+.text-yolo {
+  background-color: var(--button-hover-color);
+  color: var(--secondary-color);
+}
+
+.highlighter-coco, .highlighter-yolo {
+  border: 1px dashed #fff;
+  z-index: 1;
+  position: absolute;
+}
+
+.highlighter-coco {
+  background: var(--highlight-coco);
+}
+
+.highlighter-yolo {
+  background: var(--highlight-yolo);
+}
+
+.webcam-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* Opcional: ajusta el espacio entre elementos */
+  gap: 15px; /* Espacio entre el texto y el dropdown */
+  margin-bottom: 10px; /* Espacio entre el encabezado y la webcam */
+}
+
+.model-dropdown {
+  padding: 5px;
+}
+
+/* --------------------------- */
+/* Botón PDF */
+/* --------------------------- */
+.pdf-menu-button {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  padding: 15px;
+  border-radius: 50%;
+  font-size: 19px;
+  background: var(--primary-color);
+}
+
+
+.status-message {
+  color: var(--green-color)
+}

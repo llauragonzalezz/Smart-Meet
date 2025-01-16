@@ -1,0 +1,148 @@
+# Spanish translations for PROJECT.
+# Copyright (C) 2025 ORGANIZATION
+# This file is distributed under the same license as the PROJECT project.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2025.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2025-01-15 23:15+0100\n"
+"PO-Revision-Date: 2025-01-12 12:55+0100\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: es\n"
+"Language-Team: es <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.16.0\n"
+
+#: templates/index.html:3
+msgid "Planifica tu reunión"
+msgstr "Planifica tu reunión"
+
+#: templates/index.html:9
+msgid "Planifica tu Reunión Inteligente"
+msgstr "Planifica tu Reunión Inteligente"
+
+#: templates/index.html:11
+msgid "Título de la reunión"
+msgstr "Título de la reunión"
+
+#: templates/index.html:15
+msgid "Duración (en minutos)"
+msgstr "Duración (en minutos)"
+
+#: templates/index.html:17 templates/meeting.html:14 templates/meeting.html:22
+msgid "minutos"
+msgstr "minutos"
+
+#: templates/index.html:22
+msgid "Número de participantes"
+msgstr "Número de participantes"
+
+#: templates/index.html:24 templates/meeting.html:18
+msgid "participantes"
+msgstr "participantes"
+
+#: templates/index.html:28
+msgid "Iniciar Reunión"
+msgstr "Iniciar Reunión"
+
+#: templates/meeting.html:22
+#, fuzzy
+msgid "Tiempo restante:"
+msgstr "Tiempo restante"
+
+#: templates/meeting.html:44
+msgid "Webcam"
+msgstr "Webcam"
+
+#: templates/meeting.html:47
+#, fuzzy
+msgid "Selecciona Modelo"
+msgstr "Selecciona Modelo"
+
+#: templates/meeting.html:57
+msgid "Resumen"
+msgstr "Resumen"
+
+#: templates/meeting.html:58
+msgid "Esperando el resumen..."
+msgstr "Esperando el resumen..."
+
+#: templates/meeting.html:64
+msgid "Timeline"
+msgstr "Timeline"
+
+#: templates/meeting.html:75
+msgid "Transcripción"
+msgstr "Transcripción"
+
+#: templates/meeting.html:85
+msgid "Palabras Clave"
+msgstr "Palabras Clave"
+
+#: templates/meeting.html:99
+msgid "Ideas"
+msgstr "Ideas"
+
+#: templates/meeting.html:102
+msgid "No hay ninguna idea todavía..."
+msgstr "No hay ninguna idea todavía..."
+
+#: templates/meeting.html:106
+msgid "Alta Prioridad"
+msgstr "Alta Prioridad"
+
+#: templates/meeting.html:110
+msgid "Media Prioridad"
+msgstr "Media Prioridad"
+
+#: templates/meeting.html:114
+msgid "Baja Prioridad"
+msgstr "Baja Prioridad"
+
+#: templates/menu/accessibility_menu.html:9
+msgid "Configuración de Accesibilidad"
+msgstr "Configuración de Accesibilidad"
+
+#: templates/menu/accessibility_menu.html:10
+msgid "Seleccionar Tema"
+msgstr "Seleccionar Tema"
+
+#: templates/menu/accessibility_menu.html:12
+msgid "Claro"
+msgstr "Claro"
+
+#: templates/menu/accessibility_menu.html:13
+msgid "Oscuro"
+msgstr "Oscuro"
+
+#: templates/menu/accessibility_menu.html:15
+msgid "Tamaño de Letra"
+msgstr "Tamaño de Letra"
+
+#: templates/menu/accessibility_menu.html:17
+msgid "Pequeño"
+msgstr "Pequeño"
+
+#: templates/menu/accessibility_menu.html:18
+msgid "Mediano"
+msgstr "Mediano"
+
+#: templates/menu/accessibility_menu.html:19
+msgid "Grande"
+msgstr "Grande"
+
+#: templates/menu/accessibility_menu.html:21
+msgid "Cerrar"
+msgstr "Cerrar"
+
+#~ msgid "Configuración de Idioma"
+#~ msgstr "Configuración de Idioma"
+
+#~ msgid "Seleccionar Idioma:"
+#~ msgstr "Seleccionar Idioma:"
+
