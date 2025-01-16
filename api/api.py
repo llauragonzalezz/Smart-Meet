@@ -7,8 +7,8 @@ import os
 
 
 # ----------------- CONFIG -----------------
-WEB_HOST = os.environ.get('WEB_HOST', 'localhost')
-WEB_PORT = int(os.environ.get('WEB_PORT', 8001))
+#WEB_HOST = os.environ.get('WEB_HOST', 'localhost')
+#WEB_PORT = int(os.environ.get('WEB_PORT', 8001))
 DEBUG = os.environ.get('DEBUG', 'True').lower() == 'true'
 API_HOST = os.environ.get('API_URL', "localhost")
 API_PORT = int(os.environ.get('API_PORT', 8000))
