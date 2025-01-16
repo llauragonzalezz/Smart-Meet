@@ -1,3 +1,4 @@
+import os
 from flask import Flask, request, render_template, jsonify, session
 import configparser
 from flask_cors import CORS
@@ -8,12 +9,12 @@ from flask_babel import gettext as _
 config = configparser.ConfigParser()
 config.read('../settings.ini')
 
-WEB_HOST = config['WEB']['HOST']
-WEB_PORT = config['WEB']['PORT']
-DEBUG = config['WEB'].getboolean('DEBUG')
-API_HOST = config['API']['HOST']
-API_PORT = config['API']['PORT']
-
+WEB_HOST = os.environ.get('WEB_HOST', config['WEB']['HOST'])
+WEB_HOST = os.environ.get('WEB_HOST', config['WEB']['HOST'])
+WEB_PORT = os.environ.get('WEB_PORT', config['WEB']['PORT'])
+DEBUG = os.environ.get('DEBUG', config['WEB'].getboolean('DEBUG'))
+API_HOST = os.environ.get('API_HOST', config['API']['HOST'])
+API_PORT = os.environ.get('API_PORT', config['API']['PORT'])
 
 # ----------------- APP -----------------
 app = Flask(__name__)
