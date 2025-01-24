@@ -375,6 +375,10 @@ button:hover {
   gap: 20px;
 }
 
+video {
+  display: block;
+}
+
 .section {
   background-color: var(--secondary-color);
   border-radius: 8px;
@@ -669,7 +673,7 @@ footer {
 /* Webcam */
 /* --------------------------- */
 .webcam-view {
-  width: 100%;
+  /* width: 100%; */
   height: auto;
   border-radius: 12px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
@@ -677,8 +681,10 @@ footer {
 }
 
 .camView {
+  position: relative;
   float: left;
-  /* width: calc(100% - 20px); */
+  width: calc(100% - 20px);
+  margin: 10px;
   cursor: pointer;
 }
 
@@ -698,7 +704,7 @@ footer {
 
 .text-yolo {
   background-color: var(--button-hover-color);
-  color: var(--secondary-color);
+  color: var(--button-hover-color);
 }
 
 .highlighter-coco, .highlighter-yolo {

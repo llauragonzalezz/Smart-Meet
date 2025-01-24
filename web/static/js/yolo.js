@@ -7,7 +7,7 @@ let webcam;
 let model;
 let processor;
 let timer;
-const global_participants = 5;
+const global_participants = 4;
 let participants = 0;
 const grace_period = 30; // seconds
 

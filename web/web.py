@@ -1,4 +1,3 @@
-import os
 from flask import Flask, request, render_template, jsonify, session
 import configparser
 from flask_cors import CORS
@@ -6,16 +5,20 @@ from flask_babel import Babel
 from flask_babel import gettext as _
 
 # ----------------- CONFIG -----------------
-WEB_HOST = os.environ.get('WEB_HOST', '0.0.0.0')
-WEB_PORT = int(os.environ.get('WEB_PORT', 8001))
-DEBUG = os.environ.get('DEBUG', 'True').lower() == 'true'
-API_HOST = os.environ.get('API_URL', "0.0.0.0")
-API_PORT = int(os.environ.get('API_PORT', 8000))
+config = configparser.ConfigParser()
+config.read('../settings.ini')
+
+WEB_HOST = config['WEB']['HOST']
+WEB_PORT = config['WEB']['PORT']
+DEBUG = config['WEB'].getboolean('DEBUG')
+API_HOST = config['API']['HOST']
+API_PORT = config['API']['PORT']
+
 
 # ----------------- APP -----------------
 app = Flask(__name__)
-app.config['SECRET_KEY'] = os.environ.get('SECRET_KEY', '')
-app.secret_key = os.environ.get('SECRET_KEY', '')
+app.config['SECRET_KEY'] = config['DEFAULT']['SECRET_KEY']
+app.secret_key = config['DEFAULT']['SECRET_KEY']
 
 # Habilitar CORS para todas las rutas
 CORS(app)

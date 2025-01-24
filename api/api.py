@@ -1,19 +1,22 @@
+import json
 from flask import Flask, render_template, request, jsonify
 import configparser
 import openai
 from flask_cors import CORS, cross_origin
 from pydantic import BaseModel
-import os
 
 
 # ----------------- CONFIG -----------------
-#WEB_HOST = os.environ.get('WEB_HOST', 'localhost')
-#WEB_PORT = int(os.environ.get('WEB_PORT', 8001))
-DEBUG = os.environ.get('DEBUG', 'True').lower() == 'true'
-API_HOST = os.environ.get('API_URL', "0.0.0.0")
-API_PORT = int(os.environ.get('API_PORT', 8000))
-OPENAI_MODEL = os.environ.get('OPENAI_MODEL', 'gpt-4o-mini')
-openai.api_key = os.environ.get('OPENAI_API_KEY', '')
+config = configparser.ConfigParser()
+config.read('../settings.ini')
+
+WEB_HOST = config['WEB']['HOST']
+WEB_PORT = config['WEB']['PORT']
+DEBUG = config['WEB'].getboolean('DEBUG')
+API_HOST = config['API']['HOST']
+API_PORT = config['API']['PORT']
+OPENAI_MODEL = config['DEFAULT']['OPENAI_MODEL']
+openai.api_key = config['DEFAULT']['OPENAI_API_KEY']
 
 
 app = Flask(__name__)
@@ -234,4 +237,4 @@ def generate_keyword_stats():
 if __name__ == '__main__':
     app.run(debug=True, host=API_HOST, port=API_PORT)
 
-    app.config['SECRET_KEY'] = os.environ.get('SECRET_KEY', '')
+    app.config['SECRET_KEY'] = config['DEFAULT']['SECRET_KEY']
