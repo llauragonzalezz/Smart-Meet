@@ -1,3 +1,48 @@
+# SmartMeet - Intelligent Meeting Support System
+
+## Project Description
+**SmartMeet** is an intelligent system designed to enhance meeting experiences through speech detection, idea generation, and late arrival detection. With advanced features such as real-time transcription, automatic summary generation, and keyword extraction, SmartMeet transforms the way meetings are conducted.
+
+## Authors
+- **Lucía Cordero**  
+- **Jorge Garcelán**  
+- **Laura González**
+
+**Course**: Ambient Intelligence
+**Date**: January 2025  
+
+## Technologies Used
+- **Python 3.9+**
+- **Flask** (Backend and API)
+- **Transformers.js and Whisper** (Speech recognition and real-time transcription)
+- **OpenAI API** (Summary, idea, and keyword generation)
+- **YOLOv10 and COCO-SSD** (People detection in meetings)
+- **Jinja2 and HTML/CSS/JS** (User interface)
+
+## Key Features
+### 🔹 Real-Time Transcription and Visualization
+- Uses **Whisper with Transformers.js** for live meeting transcriptions.
+- Updates transcriptions every **3 seconds** to balance speed and accuracy.
+- Optimized formatting with speaker identification.
+- Supports **Spanish, English, and Italian**.
+
+### 🔹 Summary, Keyword, and Idea Generation
+- **Automatic summaries** generated with OpenAI API.
+- **Keyword extraction** based on natural language processing.
+- **Idea generation** based on detected discussion topics.
+- **Interactive idea visualization** through movable cards organized by priority.
+
+### 🔹 New Participant Detection
+- **YOLOv10** implementation for precise participant detection.
+- **COCO-SSD** as an alternative for faster processing.
+- **Grace period system** to alert about late arrivals.
+
+### 🔹 Additional Features
+- **Adaptive interface:** Light/dark mode and font size adjustments.
+- **Timeline:** Chronological log of generated ideas.
+- **Final report:** Automatic generation of a complete meeting summary.
+- **Language selection:** Multilingual support for interface and transcription.
+
 # Project Setup
 
 ## Creating a Virtual Environment
