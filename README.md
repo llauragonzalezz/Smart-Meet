@@ -9,6 +9,7 @@
 - **Laura González**
 
 **Course**: Ambient Intelligence
+
 **Date**: January 2025  
 
 ## Technologies Used
